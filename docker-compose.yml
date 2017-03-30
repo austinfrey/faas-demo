@@ -1,0 +1,53 @@
+version: "3"
+services:
+  # FaaS Setup
+  gateway:
+    image: functions/gateway:latest
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - 8080:8080
+    networks:
+      - functions
+    deploy:
+      placement:
+        constraints: [node == manager]
+
+  prometheus:
+    image: quay.io/prometheus/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alert.rules:/etc/prometheus/alert.rules
+    command: "-config.file=/etc/prometheus/prometheus.yml -storage.local.path=/prometheus -storage.local.memory-chunks=10000 --alertmanager.url=http://alertmanager:9093"
+    ports:
+      - 9090:9090
+    depends_on:
+      - gateway
+      - alertmanager
+    environment:
+      no_proxy: "gateway"
+    networks:
+      - functions
+    deploy:
+      placement:
+        constraints: [node.role = manager]
+
+  alertmanager:
+    image: quay.io/prometheus/alertmanager
+    environment:
+      no_proxy: "gateway"
+    volumes:
+      - ./prometheus/alertmanager.yml:/alertmanager.yml
+    command:
+      - '-config.file=/alertmanager.yml'
+    networks:
+      - functions
+    ports:
+      - 9093:9093
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+  # Functions
+  submitToAirtable:
+    image: aafrey/submitToAirtable

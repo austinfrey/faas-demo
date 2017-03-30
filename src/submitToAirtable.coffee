@@ -12,4 +12,4 @@ getStdin()
       console.log record.getId()
   return
 .then (issue) ->
-  return
+  
