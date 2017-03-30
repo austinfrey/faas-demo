@@ -1,0 +1,26 @@
+{
+  "name": "airtable-github-issue-management",
+  "version": "0.0.1",
+  "description": "Manage your Github issues in Airtable",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aafrey/airtable-faas-webhook.git"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aafrey/airtable-faas-webhook/issues"
+  },
+  "homepage": "https://github.com/aafrey/airtable-faas-webhook#readme",
+  "dependencies": {
+    "airtable": "^0.4.5",
+    "coffeescript": "^2.0.0-alpha1",
+    "get-stdin": "^5.0.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  }
+}
