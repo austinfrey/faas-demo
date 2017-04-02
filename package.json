@@ -20,6 +20,7 @@
     "airtable": "^0.4.5",
     "coffeescript": "^2.0.0-alpha1",
     "get-stdin": "^5.0.1",
+    "github-api": "^3.0.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0"
   }

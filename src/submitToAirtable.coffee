@@ -4,12 +4,13 @@ base = new Airtable(apiKey: 'keya5owBYIn0zRzxP').base('app2PLtM6KVLhzhrJ')
 payload = require './payload.json'
 
 getStdin()
-.then (payload) ->
+.then (entry) ->
   base('Bugs & Issues')
-    .create payload
+    .create entry
     , (err, record) ->
-      if err then console.log err
+      if err
+        console.log err
+        return
       console.log record.getId()
   return
-.then (issue) ->
-  
+.catch console.log.bind console
