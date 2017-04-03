@@ -13,7 +13,7 @@ data =
 
 #getStdin()
 #.then (data) ->
-payload.url = "https://api.github.com/repos/aafrey/faas-demo/#{data.issue}/assignees?client_id=aafrey&client_secret=ce1d665a2f8a4d2ca2e92def3f4c98b82c91db98"
+payload.url = "https://api.github.com/repos/aafrey/faas-demo/#{data.issue}/assignees"
 payload.body =
   assignees: [data.githubUserName]
 rp(payload)
