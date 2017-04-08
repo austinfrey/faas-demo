@@ -5,7 +5,7 @@ baseUrl = 'https://techlancasterdemo.us/function/'
 submitToAirtable = new FaaS baseUrl + 'stack_submit_to_airtable'
 lowestIssueCount = new FaaS  baseurl + 'stack_lowest_issue_count'
 assignRecordTo = new FaaS baseUrl + 'stack_assign_record_to'
-updateGithubIssue = new FaaS baseUrl + 'stack_updategithubissue'
+updateGithubIssue = new FaaS baseUrl + 'stack_update_github_issue'
 
 getStdin()
 .then (entry) ->
