@@ -37,11 +37,12 @@ services:
     image: functions/gateway:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-      - 8080:8080
     networks:
       - functions
     deploy:
+      labels:
+        - traefik.port=8080
+        - traefik.frontend.rule=Host:techlancasterdemo.us,www.techlancasterdemo.us
       placement:
         constraints: [node == manager]
 
