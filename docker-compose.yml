@@ -27,7 +27,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "acme:/etc/traefik/acme"
     networks:
-      - traefik-net
+      - functions
     deploy:
       placement:
         constraints: [node.role == manager]
@@ -88,7 +88,7 @@ services:
     depends_on:
       - gateway
     networks:
-      - traefik-net
+      - functions
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
@@ -100,7 +100,7 @@ services:
     depends_on:
       - gateway
     networks:
-      - traefik-net
+      - functions
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
@@ -111,7 +111,7 @@ services:
     depends_on:
       - gateway
     networks:
-      - traefik-net
+      - functions
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
@@ -123,7 +123,7 @@ services:
     depends_on:
       - gateway
     networks:
-      - traefik-net
+      - functions
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
@@ -135,13 +135,13 @@ services:
     depends_on:
       - gateway
     networks:
-      - traefik-net
+      - functions
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
 
 networks:
-  traefik-net:
+  functions:
     driver: overlay
 
 volumes:
