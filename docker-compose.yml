@@ -62,7 +62,7 @@ services:
       - functions
     deploy:
       placement:
-        constraints: [node.role = manager]
+        constraints: [node.role == manager]
 
   alertmanager:
     image: quay.io/prometheus/alertmanager
@@ -104,6 +104,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+
   assign_record_to:
     image: aafrey/assign_record_to:latest
     labels:
