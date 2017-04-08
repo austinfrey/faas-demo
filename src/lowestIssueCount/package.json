@@ -1,0 +1,20 @@
+{
+  "name": "lowest-issue-count",
+  "version": "0.0.1",
+  "description": "get team member with lowest airtable issue count",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitub.com/aafrey/lowestissuecount.git"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.4.5",
+    "coffee-script": "^1.12.4",
+    "get-stdin": "^5.0.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "issue-logger",
+  "version": "0.0.1",
+  "description": "assign github issues in airtable",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aafrey/logger.git"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aafrey/logger/issues"
+  },
+  "homepage": "https://github.com/aafrey/logger#readme",
+  "dependencies": {
+    "get-stdin": "^5.0.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  }
+}

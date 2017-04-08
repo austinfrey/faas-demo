@@ -1,0 +1,24 @@
+{
+  "name": "submit-to-airtable",
+  "version": "0.0.1",
+  "description": "Submit issues from GitHub to airtable",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aafrey/submitToAirtable.git"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aafrey/submitToAirtable/issues"
+  },
+  "homepage": "https://github.com/aafrey/submitToAirtable#readme",
+  "dependencies": {
+    "airtable": "^0.4.5",
+    "coffee-script": "^1.12.4",
+    "get-stdin": "^5.0.1"
+  }
+}

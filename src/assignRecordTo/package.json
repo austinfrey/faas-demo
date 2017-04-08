@@ -1,0 +1,24 @@
+{
+  "name": "assign-record-to",
+  "version": "0.0.1",
+  "description": "assign a github issue to an airtable team member",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aafrey/assignissueto.git"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aafrey/assignissueto/issues"
+  },
+  "homepage": "https://github.com/aafrey/assignissueto#readme",
+  "dependencies": {
+    "airtable": "^0.4.5",
+    "coffee-script": "^1.12.4",
+    "get-stdin": "^5.0.1"
+  }
+}
