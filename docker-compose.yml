@@ -1,5 +1,37 @@
 version: "3"
 services:
+  # Traefik setup
+  traefik:
+    image: traefik:latest
+    command: -c --docker=true
+      --docker.swarmmode=true
+      --docker.domain=traefik
+      --docker.watch=true
+      --web=true
+      --debug=true
+      --defaultEntryPoints='http,https'
+      --acme=true
+      --acme.domains='techlancasterdemo.us,www.techlancasterdemo.us'
+      --acme.email=aafrey85@gmail.com
+      --acme.ondemand=true
+      --acme.onhostrule=true
+      --acme.storage=/etc/traefik/acme/acme.json
+      --acme.entryPoint=https
+      --entryPoints='Name:https Address::443 TLS'
+      --entryPoints='Name:http Address::80 Redirect.EntryPoint:https'
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "acme:/etc/traefik/acme"
+    networks:
+      - traefik-net
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
   # FaaS Setup
   gateway:
     image: functions/gateway:latest
@@ -48,6 +80,69 @@ services:
       placement:
         constraints: [node.role == manager]
 
-  # Functions
-  submitToAirtable:
-    image: aafrey/submitToAirtable
+  # Function List
+  submit_to_airtable:
+    image: aafrey/submit-to-airtable:latest
+    labels:
+      function: "true"
+    depends_on:
+      - gateway
+    networks:
+      - traefik-net
+    environment:
+      no_proxy: "gateway"
+      https_proxy: $https_proxy
+
+  lowest_issue_count:
+    image: aafrey/lowest_issue_count:latest
+    labels:
+      function: "true"
+    depends_on:
+      - gateway
+    networks:
+      - traefik-net
+    environment:
+      no_proxy: "gateway"
+      https_proxy: $https_proxy
+  assign_record_to:
+    image: aafrey/assign_record_to:latest
+    labels:
+      function: "true"
+    depends_on:
+      - gateway
+    networks:
+      - traefik-net
+    environment:
+      no_proxy: "gateway"
+      https_proxy: $https_proxy
+
+  update_github_issue:
+    image: aafrey/update_github_issue:latest
+    labels:
+      function: "true"
+    depends_on:
+      - gateway
+    networks:
+      - traefik-net
+    environment:
+      no_proxy: "gateway"
+      https_proxy: $https_proxy
+
+  logger:
+    image: aafrey/logger:latest
+    labels:
+      function: "true"
+    depends_on:
+      - gateway
+    networks:
+      - traefik-net
+    environment:
+      no_proxy: "gateway"
+      https_proxy: $https_proxy
+
+networks:
+  traefik-net:
+    driver: overlay
+
+volumes:
+  acme:
