@@ -93,6 +93,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+    env_file: ./airtable.env
 
   lowest_issue_count:
     image: aafrey/lowest_issue_count:latest
@@ -105,6 +106,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+    env_file: ./airtable.env
 
   assign_record_to:
     image: aafrey/assign_record_to:latest
@@ -117,6 +119,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+    env_file: ./airtable.env
 
   update_github_issue:
     image: aafrey/update_github_issue:latest
@@ -129,6 +132,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+    env_file: ./github.env
 
   logger:
     image: aafrey/logger:latest
@@ -141,6 +145,7 @@ services:
     environment:
       no_proxy: "gateway"
       https_proxy: $https_proxy
+    env_file: ./airtable.env
 
 networks:
   traefik-net:

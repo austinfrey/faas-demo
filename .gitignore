@@ -3,3 +3,5 @@ scratch
 payload.json
 test.json
 test2.json
+airtable.env
+github.env
