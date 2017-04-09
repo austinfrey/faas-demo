@@ -14,5 +14,7 @@ getStdin()
       if err
         console.error err
         return
-      console.log JSON.stringify(assignedTo: record.get 'Assigned to')
+      console.log JSON.stringify
+        assignedTo: record.get 'Assigned to'
+        githubUser: updateData.githubUser
   )
