@@ -3,7 +3,7 @@ getStdin = require 'get-stdin'
 
 getStdin()
 .then (assignee) ->
-  assignees = JSON.parse assignee
+  assignee = JSON.parse assignee
   github = new GitHub
     debug: true
     protocol: 'https'
