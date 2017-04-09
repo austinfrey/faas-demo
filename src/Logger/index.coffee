@@ -28,4 +28,3 @@ getStdin()
   githubUser: [userinfo.githubUser]
 .then console.log
 .catch console.log.bind console
-# TODO implement assignement in github
