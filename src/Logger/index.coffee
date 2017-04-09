@@ -14,7 +14,8 @@ getStdin()
 .then (entry) ->
   entry = JSON.parse entry
   issueNumber = entry.issue.number.toString()
-  submitToAirtable.post entry
+  if entry.action is "opened" then submitToAirtable.post entry
+  else Promise.reject(new Error('already assigned'))
 .then (record) ->
   airtableRecord = record.record
   lowestIssueCount.post()
