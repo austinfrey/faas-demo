@@ -6,7 +6,7 @@ base = new Airtable(
 
 getStdin()
 .then (updateData) ->
-  updateDate = JSON.parse updateData
+  updateData = JSON.parse updateData
   base('Bugs & Issues').update(
     updateData.record,
     { 'Assigned to': [updateData.assignTo] },
