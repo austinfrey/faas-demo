@@ -1,6 +1,6 @@
 FaaS = require './faas-chain'
 getStdin = require 'get-stdin'
-baseUrl = "https://#{process.env.GATEWAY_BASE_URL}/function/"
+baseUrl = "http://gateway:8080/function/"
 
 submitToAirtable = new FaaS baseUrl + 'stack_submit_to_airtable'
 lowestIssueCount = new FaaS  baseUrl + 'stack_lowest_issue_count'
