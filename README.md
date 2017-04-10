@@ -23,5 +23,8 @@ the lowest issue count
 Adds an assignee to the issue in GitHub
 
 #### In action
-[Quick video demo](https://www.youtube.com/watch?v=6dORD3_E5aU&t=1s)
+[Quick video demo on YouTube](https://www.youtube.com/watch?v=6dORD3_E5aU&t=1s)
+
+
+
 ![alt text](https://s3.amazonaws.com/aafrey-random/github-to-airtable.gif)
