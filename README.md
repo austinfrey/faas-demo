@@ -23,4 +23,4 @@ the lowest issue count
 Adds an assignee to the issue in GitHub
 
 #### In action
-[!alt text](https://s3.amazonaws.com/aafrey-random/github-to-airtable.gif)
+![alt text](https://s3.amazonaws.com/aafrey-random/github-to-airtable.gif)
