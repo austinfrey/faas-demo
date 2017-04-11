@@ -25,7 +25,7 @@ getStdin()
   ), (cb) ->
     payload = 'STRESS!'
     request.post {
-      uri: 'http://localhost:8080/function/stack_coffee'
+      uri: 'https://techlancasterdemo.us/function/stack_coffee'
       json: true
       body: payload
     }, (err, res, data) ->
