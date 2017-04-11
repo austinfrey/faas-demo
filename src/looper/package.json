@@ -1,0 +1,16 @@
+{
+  "name": "looper",
+  "version": "0.0.1",
+  "description": "loop your FaaS functions for testing",
+  "main": "looper.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Austin Frey",
+  "license": "ISC",
+  "dependencies": {
+    "get-stdin": "^5.0.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  }
+}
