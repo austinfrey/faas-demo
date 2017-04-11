@@ -15,7 +15,8 @@ counter = 0
 
 getStdin()
 .then (data) ->
-  funcToLoop = new FaaS base + data.func
+  data = JSON.parse data
+  funcToLoop = new FaaS baseUrl + data.func
   incrementor = ->
     counter++
     funcToLoop(data.body)
