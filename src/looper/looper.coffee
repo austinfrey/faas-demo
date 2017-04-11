@@ -19,7 +19,7 @@ getStdin()
   funcToLoop = new FaaS baseUrl + data.func
   incrementor = ->
     counter++
-    funcToLoop(data.body)
+    funcToLoop.post(data.body)
     if counter is data.count
       clearInterval looper
       console.log 'all done'
