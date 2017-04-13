@@ -83,7 +83,7 @@ services:
 
   # Function List
   submit_to_airtable:
-    image: aafrey/submit-to-airtable:latest
+    image: aafrey/faas-demo:submit_to_airtable
     labels:
       function: "true"
     depends_on:
@@ -96,7 +96,7 @@ services:
     env_file: ./airtable.env
 
   lowest_issue_count:
-    image: aafrey/lowest_issue_count:latest
+    image: aafrey/faas-demo:lowest_issue_count
     labels:
       function: "true"
     depends_on:
@@ -109,7 +109,7 @@ services:
     env_file: ./airtable.env
 
   assign_record_to:
-    image: aafrey/assign_record_to:latest
+    image: aafrey/faas-demo:assign_record_to
     labels:
       function: "true"
     depends_on:
@@ -122,7 +122,7 @@ services:
     env_file: ./airtable.env
 
   update_github_issue:
-    image: aafrey/update_github_issue:latest
+    image: aafrey/faas-demo:update_github_issue
     labels:
       function: "true"
     depends_on:
@@ -135,7 +135,7 @@ services:
     env_file: ./github.env
 
   logger:
-    image: aafrey/logger:latest
+    image: aafrey/faas-demo:logger
     labels:
       function: "true"
     depends_on:
