@@ -2,7 +2,7 @@ version: "3"
 services:
   # Traefik setup
   traefik:
-    image: traefik:latest
+    image: traefik:v1.2.1
     command: -c --docker=true
       --docker.swarmmode=true
       --docker.domain=traefik
